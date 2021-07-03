@@ -11,5 +11,5 @@ COPY requirements.txt ./
 # 依存Pythonライブラリインストール
 RUN pip install --no-cache-dir -r requirements.txt
     
-CMD [ "python", "setup_database.py" ]
-CMD ["uwsgi","--ini","/var/www/uwsgi.ini"]
+# CMD sh -c "rm ./data/photos.sqlite3 && touch ./data/photos.sqlite3 && python setup_database.py && uwsgi --ini /var/www/uwsgi.ini"
+CMD sh -c "uwsgi --ini /var/www/uwsgi.ini"
