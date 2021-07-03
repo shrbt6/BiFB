@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request
 from flask.wrappers import Request
-from werkzeug.utils import redirect
+import app_db
+
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return render_template('index.html')
+    return render_template('index.html', apps=app_db.get_apps())
 
 @app.route('/post')
 def post():
@@ -18,7 +19,9 @@ def register_user():
         app_description = request.form['app_description']
         app_url = request.form['app_url']
         user_id = request.form['user_id']
-    return render_template('index.html')
+        app_db.add_user(user_id)
+        app_db.add_app(user_id, app_title, app_description, app_url)
+    return render_template('index.html', apps=app_db.get_apps())
 
 @app.route('/login')
 def login():
