@@ -20,12 +20,16 @@ h1 {
     border-left: 10px solid transparent;
   }
  */
-
+form {
+    text-align: center;
+    align-items: center;
+}
 p {
     font-size: 16px;
     line-height: 2;
     letter-spacing: 1px;
     text-align: center;
+    align-items: center;         /*中央寄せ*/
     }       
 body {
     /* width: 600px;*/    /*ページ全体の横幅を反映してしまう。ヘッダーだけ変更できない */
@@ -36,8 +40,7 @@ body {
     /*border: 5px solid black;*/
 }
 
-header {
-    
+header {    
     display: flex;    
     align-items: center;
     justify-content: space-between;
