@@ -49,8 +49,12 @@
                 <input type="text" name="setsumei" size="60"/><br>
             </p>        
             <p>
-                写真を追加<br>
-                
+                画像<br>
+                <p><form method="post" enctype="multipart/form-data">
+                <input type="file" name="example" accept=".png, .jpg, .jpeg, .pdf, .doc"></p>
+                    <!-- アップロードボタンがいるなら下のコード追加 -->
+                    <!-- <button type="submit">アップロード</button> -->
+                </form>
             </p>
             <p>
                 <input type="submit" name="send" value="送信"/>
