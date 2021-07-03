@@ -9,5 +9,9 @@ def hello():
 def hello1():
     return render_template('test.html')
 
+@app.route('/login')
+def login():
+    return render_template('login_form.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
