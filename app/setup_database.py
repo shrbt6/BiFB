@@ -16,7 +16,7 @@ CREATE TABLE apps (
     url         TEXT,
     filename    TEXT,
     created_at  TIMESTAMP DEFAULT (DATETIME('now', 'localtime'))
-    limit       
+    limit       TIMESTAMP DEFAULT (DATETIME('now', 'localtime')) + INTEGER '30'
 )
 ''')
 
