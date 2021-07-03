@@ -13,5 +13,9 @@ def hello1():
 def login():
     return render_template('login_form.html')
 
+@app.route('/success')
+def success():
+    return '認証成功'
+
 if __name__ == '__main__':
     app.run(debug=True)
