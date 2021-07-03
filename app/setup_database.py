@@ -3,6 +3,8 @@ from app_sqlite import exec
 exec('''
 CREATE TABLE users (
     user_id     TEXT PRIMARY KEY,
+    user_name   TEXT,
+    email       TEXT,
     point       INTEGER default 1
 )
 ''')
