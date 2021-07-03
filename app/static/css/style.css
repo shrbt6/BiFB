@@ -1,12 +1,24 @@
-
 body {
-        width: 600px;
-        margin: 0 auto;
-        background-color: #E6E6FA;
-        /*padding: 0 200px 20px 20px;*/
-        /*border: 5px solid black;*/
-    } 
-    .flex-container {
-        display: flex;
-        justify-content: flex-end;
-    }        
+    width: 600px;
+    margin: 0 auto;
+    background-color: #E6E6FA;
+    /*padding: 0 200px 20px 20px;*/
+    /*border: 5px solid black;*/
+} 
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-title a {
+    color: black;
+    font-weight: bolder;
+}
+.header-title a:hover {
+    text-decoration: none;
+}
+#firebaseui-auth-container {
+    margin-top: 100px;
+    padding: 30px;
+    background-color: white;
+}
