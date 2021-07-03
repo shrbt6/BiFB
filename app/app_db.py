@@ -1,6 +1,31 @@
 import re, photo_file, app_sqlite
 from app_sqlite import exec, select
 
+def add_user(user_id):
+    checked_id = select('SELECT * FROM users WHERE user_id=?', user_id)
+    if len(checked_id) == 0:
+        exec('INSERT INTO users (user_id) VALUES (?)', user_id)
+
+def sum_user_point(user_id):
+    point = select('SELECT point FROM users WHERE user_id=?', user_id)
+    if len(point):
+        new_point_val = point[0] + 1
+        exec('UPDATE users SET point=? WHERE user_id=?', new_point_val, user_id)
+        return new_point_val
+    return None
+
+def sub_user_point(user_id):
+    point = select('SELECT point FROM users WHERE user_id=?', user_id)
+    if len(point):
+        new_point_val = max(point[0]-1, 0)
+        exec('UPDATE users SET point=? WHERE user_id=?', new_point_val, user_id)
+        return new_point_val
+    return None
+
+def add_app(user_id, title, description, url):
+    app_id = exec('INSERT INTO apps (user_id, title, description, url VALUES (?,?,?,?)', user_id, title, description, url)
+    return app_id
+
 def album_new(user_id, args):
     name = args.get('name', '')
     if name == '':
