@@ -46,6 +46,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // The start method will wait until the DOM is loaded.
   ui.start('#firebaseui-auth-container', uiConfig);
 
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const userData = JSON.stringify({'user_id': user.uid, 'user_name': user.displayName, 'email': user.email})
+      $.ajax({
+        type: 'POST',
+        url: '/user/add',
+        data: userData,
+        contentType: 'application/json',
+        success: function(data) {
+          // console.log(data);
+        },
+        error: function(error) {
+          // console.log(error)
+        }
+      })
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+
   appSubmit.addEventListener('click', () => {
     let user = firebase.auth().currentUser;
     if (user !== null) {
