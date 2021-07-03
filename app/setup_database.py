@@ -17,8 +17,8 @@ CREATE TABLE apps (
     description TEXT,
     url         TEXT,
     filename    TEXT,
-    created_at  TIMESTAMP DEFAULT (DATETIME('now', 'localtime')),
-    limit_at    TIMESTAMP DEFAULT (DATETIME('now', 'localtime', '+30 days'))
+    created_at  TIMESTAMP DEFAULT (DATE('now', 'localtime')),
+    limit_at    TIMESTAMP DEFAULT (DATE('now', 'localtime', '+30 days'))
 )
 ''')
 
