@@ -23,8 +23,21 @@ def sub_user_point(user_id):
     return None
 
 def add_app(user_id, title, description, url):
-    app_id = exec('INSERT INTO apps (user_id, title, description, url VALUES (?,?,?,?)', user_id, title, description, url)
-    return app_id
+    search_app = select('SELECT * FROM apps WHERE user_id=? AND title=?', user_id, title)
+    if len(search_app)==0:
+        app_id = exec('INSERT INTO apps (user_id, title, description, url) VALUES (?,?,?,?)', user_id, title, description, url)
+        return app_id
+    else:
+        return None
+
+def get_apps():
+    return select('SELECT * FROM apps')
+
+def get_app(app_id):
+    a = select('SELECT * FROM apps WHERE app_id=?', app_id)
+    if len(a) == 0:
+        return None
+    return a[0]
 
 def album_new(user_id, args):
     name = args.get('name', '')
