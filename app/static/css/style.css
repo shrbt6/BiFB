@@ -9,7 +9,8 @@ h1 {
     -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
   }
-  
+ 
+  /*
   h1:before {
     position: absolute;
     bottom: -10px;
@@ -20,7 +21,7 @@ h1 {
     border-top: 10px solid #005276;
     border-left: 10px solid transparent;
   }
- 
+ */
  
 p {
     font-size: 16px;
