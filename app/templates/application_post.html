@@ -3,31 +3,52 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <!-- flask用パス -->
-        <!-- <link rel="stylesheet" href="/static/style.css"> -->
-        <!-- ドラッグ＆ドロップ用パス -->
-        <link rel="stylesheet" href="../static/css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiFB | post</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- flask用パス -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- ドラッグ＆ドロップ用パス -->
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+    <!-- Firebase SDK追加 -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+    <!-- ここまでFirebase SDK追加 -->
     </head>
     
     <body>
-        <h1>BiFB</h1>
-        <p class="lead">作品を投稿しよう</p>
+        <header>
+            <h1 class="header-title header-item"><a href="/">BiFB</a></h1>
+            <div class="header-menu header-item">
+                <a class="btn btn-primary" href="/post">投稿</a>
+                <a class="btn btn-primary" href="/login">ログイン</a>
+            </div>
+        </header>
+        <!--<p class="lead"><h2 text-align:center>作品を投稿しよう</h2></p>-->
         <!--<a class="btn btn-primary" href="#">ログイン</a>-->
-    </body>
-    <body>
-        <form method ="post" action="receiver.php">
-                アプリタイトル:<input type="text" name="apuriname" size="40"/>
-            
-                アプリ説明:<textarea name="setsumei" cols="50" rows="6" ></textarea>
+   
+        <p method ="post" action="receiver.php">
+            <p>
+                アプリタイトル<br>
+                <input type="text" name="apuriname" size="50"/><br>
             </p>
             <p>
-                URL:<input type="text" name="setsumei" size="60"/>
+                アプリ説明<br>
+                <textarea name="setsumei" cols="50" rows="6" ></textarea><br>
             </p>
+            <p>
+                URL<br>
+                <input type="text" name="setsumei" size="60"/><br>
+            </p>
+
             <p>
                 <input type="submit" name="send" value="送信"/>
             </p>           
