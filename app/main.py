@@ -18,7 +18,7 @@ def register_user():
         app_description = request.form['app_description']
         app_url = request.form['app_url']
         user_id = request.form['user_id']
-    return render_template('/')
+    return render_template('index.html')
 
 @app.route('/login')
 def login():
