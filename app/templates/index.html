@@ -33,8 +33,19 @@
         </header>
 
         <main>
-            <section class="section-tile">
-
+            <section class="section-tile", id="section-tile">
+                {% if apps | length == 0 %}
+                <p>まだ投稿はありません。</p>
+                {% endif %}
+                {% for i in apps %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ i.title }}</h4>
+                        <p class="card-text">{{ i.created_at }}</p>
+                        <a href="#" class="card-link">{{ i.user_name }}</a>
+                    </div>
+                </div>
+                {% endfor %}
             </section>
         </main>
 

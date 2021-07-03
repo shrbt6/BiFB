@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return render_template('index.html', apps=app_db.get_apps())
+    return render_template('index.html', apps=app_db.get_apps_within_deadline())
 
 @app.route('/login')
 def login():
@@ -23,15 +23,14 @@ def post():
     return render_template('application_post.html')
 
 @app.route('/post/try', methods=['POST'])
-def register_user():
+def post_try():
     if request.method == 'POST':
         app_title = request.form['app_title']
         app_description = request.form['app_description']
         app_url = request.form['app_url']
         user_id = request.form['user_id']
-        app_db.add_user(user_id)
         app_db.add_app(user_id, app_title, app_description, app_url)
-    return render_template('index.html', apps=app_db.get_apps())
+    return render_template('index.html', apps=app_db.get_apps_within_deadline())
 
 if __name__ == '__main__':
     app.run(debug=True)
