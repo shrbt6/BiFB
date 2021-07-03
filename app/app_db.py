@@ -1,10 +1,10 @@
 import re, photo_file, app_sqlite
 from app_sqlite import exec, select
 
-def add_user(user_id):
+def add_user(user_id, user_name, email):
     checked_id = select('SELECT * FROM users WHERE user_id=?', user_id)
     if len(checked_id) == 0:
-        exec('INSERT INTO users (user_id) VALUES (?)', user_id)
+        exec('INSERT INTO users (user_id, user_name, email) VALUES (?,?,?)', user_id, user_name, email)
 
 def sum_user_point(user_id):
     point = select('SELECT point FROM users WHERE user_id=?', user_id)
