@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+  let appTitle = document.getElementById('app-title');
+  let appDescription = document.getElementById('app-description');
+  let appUrl = document.getElementById('app-url');
+  let appSubmit = document.getElementById('app-submit');
+
   // Firebase初期化
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -32,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
       signInFlow: 'popup',
-      signInSuccessUrl: '/success',
+      signInSuccessUrl: '/',
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -40,4 +45,36 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   // The start method will wait until the DOM is loaded.
   ui.start('#firebaseui-auth-container', uiConfig);
+
+  appSubmit.addEventListener('click', () => {
+    let user = firebase.auth().currentUser;
+    if (user !== null) {
+      let data = {"app_title": appTitle.value, "app_description": appDescription.value, "app_url": appUrl.value, "user_id": user.uid};
+      post('/post/try', data)
+    }
+  }, false);
+
+
+  // 無理やりPOSTするための関数
+  function post(path, params, method='post') {
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    const form = document.createElement('form');
+    form.method = method;
+    form.action = path;
+  
+    for (const key in params) {
+      if (params.hasOwnProperty(key)) {
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = key;
+        hiddenField.value = params[key];
+  
+        form.appendChild(hiddenField);
+      }
+    }
+  
+    document.body.appendChild(form);
+    form.submit();
+  }
 }, false)

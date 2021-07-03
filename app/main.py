@@ -1,21 +1,28 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from flask.wrappers import Request
+from werkzeug.utils import redirect
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello World!'
+    return render_template('index.html')
 
 @app.route('/post')
 def post():
     return render_template('application_post.html')
 
+@app.route('/post/try', methods=['POST'])
+def register_user():
+    if request.method == 'POST':
+        app_title = request.form['app_title']
+        app_description = request.form['app_description']
+        app_url = request.form['app_url']
+        user_id = request.form['user_id']
+    return render_template('/')
+
 @app.route('/login')
 def login():
     return render_template('login_form.html')
-
-@app.route('/success')
-def success():
-    return '認証成功'
 
 if __name__ == '__main__':
     app.run(debug=True)
