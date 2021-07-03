@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BiFB | login</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- flask用パス -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- ドラッグ＆ドロップ用パス -->
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
     <!-- Firebase SDK追加 -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
@@ -17,29 +23,20 @@
     <!-- ここまでFirebase SDK追加 -->
 </head>
 <body>
-    <p>ログイン画面</p>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-        Your app may use that space for branding, controls and other customizations.-->
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
+    <header>
+        <h1 class="header-title"><a href="/">BiFB</a></h1>
+        <div class="header-menu">
+            <a class="btn btn-primary" href="/post">投稿</a>
+            <a class="btn btn-primary" href="/login">ログイン</a>
+        </div>
+    </header>
 
-    <script>
-        // Firebase初期化
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        var firebaseConfig = {
-            apiKey: "AIzaSyD_chE56aSAaeJrZsKmrW_TmrFLi0V9S8s",
-            authDomain: "bifb-7e009.firebaseapp.com",
-            projectId: "bifb-7e009",
-            storageBucket: "bifb-7e009.appspot.com",
-            messagingSenderId: "839728206726",
-            appId: "1:839728206726:web:fb4ff2f60ece9e3b785207",
-            measurementId: "G-C0KD1176QH"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-    </script>
+    <main>
+        <!-- The surrounding HTML is left untouched by FirebaseUI.
+            Your app may use that space for branding, controls and other customizations.-->
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
+    </main>
     
     <!-- 主に使用するJS追加 -->
     <script src="/static/scripts/script.js"></script>
