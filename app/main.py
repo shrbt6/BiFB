@@ -5,9 +5,9 @@ app = Flask(__name__)
 def hello():
     return 'Hello World!'
 
-@app.route('/test')
-def hello1():
-    return render_template('test.html')
+@app.route('/post')
+def post():
+    return render_template('application_post.html')
 
 @app.route('/login')
 def login():
