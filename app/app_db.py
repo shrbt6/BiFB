@@ -1,10 +1,17 @@
 import re, photo_file, app_sqlite
 from app_sqlite import exec, select
 
+# usersテーブル
 def add_user(user_id, user_name, email):
     checked_id = select('SELECT * FROM users WHERE user_id=?', user_id)
     if len(checked_id) == 0:
         exec('INSERT INTO users (user_id, user_name, email) VALUES (?,?,?)', user_id, user_name, email)
+
+def get_user_name(user_id):
+    a = select('SELECT * FROM users WHERE user_id=?', user_id)
+    if len(a) == 0:
+        return None
+    return a[0]['user_name']
 
 def sum_user_point(user_id):
     point = select('SELECT point FROM users WHERE user_id=?', user_id)
@@ -22,6 +29,7 @@ def sub_user_point(user_id):
         return new_point_val
     return None
 
+# appsテーブル
 def add_app(user_id, title, description, url):
     search_app = select('SELECT * FROM apps WHERE user_id=? AND title=?', user_id, title)
     if len(search_app)==0:
@@ -31,7 +39,16 @@ def add_app(user_id, title, description, url):
         return None
 
 def get_apps():
-    return select('SELECT * FROM apps')
+    a = select('SELECT * FROM apps')
+    for i in a:
+        i['user_name'] = get_user_name(i['user_id'])
+    return a
+
+def get_apps_within_deadline():
+    a = select('SELECT * FROM apps WHERE limit_at >= date("now", "localtime")')
+    for i in a:
+        i['user_name'] = get_user_name(i['user_id'])
+    return a
 
 def get_app(app_id):
     a = select('SELECT * FROM apps WHERE app_id=?', app_id)
