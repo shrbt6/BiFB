@@ -9,9 +9,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- flask用パス -->
-    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- <link rel="stylesheet" href="/static/css/style.css"> -->
     <!-- ドラッグ＆ドロップ用パス -->
-    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+    <link rel="stylesheet" href="../static/css/style.css">
     <!-- Firebase SDK追加 -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
@@ -23,7 +23,6 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
     <!-- ここまでFirebase SDK追加 -->
     </head>
-    
     <body>
         <header>
             <h1 class="header-title header-item"><a href="/">BiFB</a></h1>
@@ -32,21 +31,18 @@
                 <a class="btn btn-primary" href="/login">ログイン</a>
             </div>
         </header>
-        <!--<p class="lead"><h2 text-align:center>作品を投稿しよう</h2></p>-->
-        <!--<a class="btn btn-primary" href="#">ログイン</a>-->
-   
-        <!--<p method ="post" action="receiver.php">-->
+        
             <p>
                 アプリタイトル<br>
                 <input type="text" name="apuriname" size="50"/><br>
             </p>
             <p>
                 アプリ説明<br>
-                <textarea name="setsumei" cols="50" rows="6" ></textarea><br>
+                <textarea name="setsumei" cols="52" rows="6" ></textarea><br>
             </p>
             <p>
                 URL<br>
-                <input type="text" name="setsumei" size="60"/><br>
+                <input type="text" name="setsumei" size="50"/><br>
             </p>        
             <p>
                 画像<br>
