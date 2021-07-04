@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start('#firebaseui-auth-container', uiConfig);
   }
-  
+
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const userData = JSON.stringify({'user_id': user.uid, 'user_name': user.displayName, 'email': user.email})
       $.ajax({
         type: 'POST',
-        url: '/user/add',
+        url: '/add/user',
         data: userData,
         contentType: 'application/json',
         success: function(data) {

@@ -12,7 +12,7 @@ def hello():
 def login():
     return render_template('login_form.html')
 
-@app.route('/user/add', methods=['POST'])
+@app.route('/add/user', methods=['POST'])
 def add_user():
     user_data = request.json
     app_db.add_user(user_data['user_id'], user_data['user_name'], user_data['email'])
