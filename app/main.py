@@ -32,5 +32,10 @@ def post_try():
         app_db.add_app(user_id, app_title, app_description, app_url)
     return render_template('index.html', apps=app_db.get_apps_within_deadline())
 
+@app.route('/app/<user_id>')
+def app_details(user_id):
+    
+    return render_template('app_details.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

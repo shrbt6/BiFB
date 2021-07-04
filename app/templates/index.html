@@ -40,9 +40,11 @@
                 {% for i in apps %}
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h4 class="card-title">{{ i.title }}</h4>
-                        <p class="card-text">{{ i.created_at }}</p>
-                        <a href="#" class="card-link">{{ i.user_name }}</a>
+                        <a href="/app/{{ i.app_id }}" class="card-link-app">
+                            <h4 class="card-title">{{ i.title }}</h4>
+                            <p class="card-text">{{ i.created_at }}</p>
+                            <a href="#" class="card-link">{{ i.user_name }}</a>
+                        </a>
                     </div>
                 </div>
                 {% endfor %}
