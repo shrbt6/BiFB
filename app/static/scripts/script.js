@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let appUrl = document.getElementById('app-url');
   let appSubmit = document.getElementById('app-submit');
   let loginLogout = document.getElementById('header-login-logout');
+  let headerPostButton = document.getElementById('header-post-button');
 
   // Firebase初期化
   // Your web app's Firebase configuration
@@ -85,8 +86,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, false);
 
+  // headerPostButton.addEventListener('click', ()=>{
+  //   let user = firebase.auth().currentUser;
+  //   if (user !== null) {
+  //     let userdata = JSON.stringify({'user_id': user.uid });
+  //     $.ajax({
+  //       type: 'POST',
+  //       url: '/check/point',
+  //       data: userdata,
+  //       contentType: 'application/json',
+  //       success: function(resData) {
+  //         console.log(resData)
+  //         if (resData['point'] > 0){
+  //           location.replace('/post');
+  //           alert('動かん')
+  //         }else{
+  //           alert('ポイントが0ポイントです。フィードバックをしてポイントを貯めましょう！');
+  //         }
+  //       },
+  //       error: function(error) {
+  //         // console.log(error)
+  //       }
+  //     })
+  //   }
+  // }, false);
+
   if (location.pathname === '/post') {
+    console.log('postに入った')
     appSubmit.addEventListener('click', () => {
+      console.log('送信推した')
       let user = firebase.auth().currentUser;
       if (user !== null) {
         let data = {"app_title": appTitle.value, "app_description": appDescription.value, "app_url": appUrl.value, "user_id": user.uid};
