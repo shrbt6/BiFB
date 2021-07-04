@@ -56,3 +56,16 @@ def get_app(app_id):
         return None
     return a[0]
 
+def add_feedback(user_id, app_id, title, description):
+    feedback_id = exec('INSERT INTO feedback (user_id, app_id, title, description) VALUES (?,?,?,?)', user_id, app_id, title, description)
+    return feedback_id
+
+# def remove_feedback(feedback_id):
+
+def get_feedback_of_app(app_id):
+    a = select('SELECT * FROM feedback WHERE app_id=?', app_id)
+    if len(a) == 0:
+        return None
+    return a
+
+# def get_user_point():

@@ -20,6 +20,7 @@ def add_user():
 
 @app.route('/post')
 def post():
+    # 先にポイントを見てポイントが0なら投稿できないようにする
     return render_template('application_post.html')
 
 @app.route('/post/try', methods=['POST'])
@@ -32,10 +33,9 @@ def post_try():
         app_db.add_app(user_id, app_title, app_description, app_url)
     return render_template('index.html', apps=app_db.get_apps_within_deadline())
 
-@app.route('/app/<user_id>')
-def app_details(user_id):
-    
-    return render_template('app_details.html')
+@app.route('/app/<app_id>')
+def app_details(app_id):
+    return render_template('app_details.html', app=app_db.get_app(app_id), )
 
 if __name__ == '__main__':
     app.run(debug=True)
