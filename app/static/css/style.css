@@ -160,10 +160,23 @@
 
     }
     
+
 }
 .section-tile {
     display: grid;
     /* grid-template-columns: repeat(3, 1fr); */
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.section-tile {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.card {
+    background-color: white;
+    border: black solid 2px;
+    margin: 10px;
 }

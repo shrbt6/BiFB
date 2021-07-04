@@ -13,10 +13,13 @@ def get_user_name(user_id):
         return None
     return a[0]['user_name']
 
+def get_user_point(user_id):
+    point = select('SELECT point FROM users WHERE user_id=?', user_id)
+    return point[0]['point']
+
 def sum_user_point(user_id):
     point = select('SELECT point FROM users WHERE user_id=?', user_id)
     if len(point):
-        print(point)
         new_point_val = point[0]['point'] + 1
         exec('UPDATE users SET point=? WHERE user_id=?', new_point_val, user_id)
         return new_point_val

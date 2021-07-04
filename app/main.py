@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask.wrappers import Request
 import app_db
 
@@ -17,6 +17,12 @@ def add_user():
     user_data = request.json
     app_db.add_user(user_data['user_id'], user_data['user_name'], user_data['email'])
     return user_data
+
+@app.route('/check/point', methods=['POST'])
+def check_user_point():
+    data = request.json
+    point = app_db.get_user_point(data['user_id'])
+    return jsonify({'point': point})
 
 @app.route('/post')
 def post():
