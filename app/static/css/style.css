@@ -7,20 +7,7 @@
         border-radius: 0 100vh 100vh 0;
        
       }
-    
-    
-      /*
-      h1:before {
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 0;
-        height: 0;
-        content: '';
-        border-top: 10px solid #005276;
-        border-left: 10px solid transparent;
-      }
-     */
+
     form {
         text-align: center;
         align-items: center;
@@ -33,7 +20,7 @@
         align-items: center;         /*中央寄せ*/
         }       
     body {
-        /* width: 600px;*/    /*ページ全体の横幅を反映してしまう。ヘッダーだけ変更できない */
+        /* width: 600px;*/   
         margin: 0 auto;
         
         background-color: #a5a5e0;
@@ -49,12 +36,8 @@
         /* box-shadow: 0 3px 5px rgba(221, 209, 209, 0.22); */
         background-color: rgb(255, 255, 255);     
     }
-    main {
-        width: 600px;
-        /* align-items: center; */
-        /* vertical-align: middle; */
-        margin:0 auto;
-    }
+       
+
     .header-title a {
         color: black;
         font-weight: bolder;
@@ -63,6 +46,22 @@
     .header-title a:hover {
         text-decoration: none;   
     }
+    .header-div {
+        display: flex;    
+        align-items: center;        
+        width: 50%; 
+        margin: 0 auto;
+        justify-content: space-between;
+        box-shadow: 0 3px 5px rgba(221, 209, 209, 0.22);
+        background-color: rgb(255, 255, 255);
+    } 
+
+
+    main {
+        width: 600px;
+        margin:0 auto;
+    }
+    
     #firebaseui-auth-container {    
         padding: 0.5em 1em;    
         margin: 2em 0;
@@ -93,19 +92,6 @@
        
       }
     
-    
-      /*
-      h1:before {
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 0;
-        height: 0;
-        content: '';
-        border-top: 10px solid #005276;
-        border-left: 10px solid transparent;
-      }
-     */
     form {
         text-align: center;
         align-items: center;
@@ -121,12 +107,7 @@
         margin: 0 auto;
         background-color: #a5a5e0;
     }
-    main {
-        margin:0 auto;
-        width: 100%;
-        box-sizing: border-box;
-        /* text-align: center; */
-    }
+    
     
     header {
         width: 100%;    
@@ -143,6 +124,21 @@
     }
     .header-title a:hover {
         text-decoration: none;   
+    }
+    .header-div {
+        display: flex;    
+        align-items: center;        
+        width: 50%; 
+        margin: 0 auto;
+        justify-content: space-between;
+        box-shadow: 0 3px 5px rgba(221, 209, 209, 0.22);
+        background-color: rgb(255, 255, 255);
+    } 
+    main {
+        margin:0 auto;
+        width: 100%;
+        box-sizing: border-box;
+        /* text-align: center; */
     }
     #firebaseui-auth-container {    
         padding: 0.5em 1em;    
@@ -161,6 +157,6 @@
         justify-content: center;
         align-items: center;
         
-        /* position: absolute; */
+
     }
 }
