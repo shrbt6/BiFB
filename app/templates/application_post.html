@@ -23,7 +23,6 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
     <!-- ここまでFirebase SDK追加 -->
     </head>
-    
     <body>
         <header>
             <h1 class="header-title header-item"><a href="/">BiFB</a></h1>
@@ -32,31 +31,34 @@
                 <a class="btn btn-primary" id="header-login-logout" href="/login">ログイン</a>
             </div>
         </header>
-        <!--<p class="lead"><h2 text-align:center>作品を投稿しよう</h2></p>-->
-        <!--<a class="btn btn-primary" href="#">ログイン</a>-->
-   
-        <!--<p method ="post" action="receiver.php">-->
+        <main>
             <p>
                 アプリタイトル<br>
                 <input type="text" name="apuriname" id="app-title" size="50"/><br>
             </p>
             <p>
                 アプリ説明<br>
-                <textarea name="setsumei" id="app-description" cols="50" rows="6" ></textarea><br>
+                <textarea name="setsumei" id="app-description" cols="52" rows="6" ></textarea><br>
             </p>
             <p>
                 URL<br>
-                <input type="text" name="setsumei" id="app-url" size="60"/><br>
+                <input type="text" name="setsumei" id="app-url" size="50"/><br>
             </p>        
             <p>
-                写真を追加<br>
-                
+                画像<br>
+                <p><form method="post" enctype="multipart/form-data">
+                <input type="file" name="example" accept=".png, .jpg, .jpeg, .pdf, .doc"></p>
+                    <!-- アップロードボタンがいるなら下のコード追加 -->
+                    <!-- <button type="submit">アップロード</button> -->
+                </form>
             </p>
+
             <p>
                 <input type="submit" name="send" id="app-submit" value="送信"/>
-            </p>   
+            </p>
+        </main>
             
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="/static/scripts/script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/static/scripts/script.js"></script>
     </body>
 </html>
