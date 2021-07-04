@@ -39,5 +39,9 @@ def app_details(app_id):
                         app=app_db.get_app(app_id),
                         feedback=app_db.get_feedback_of_app(app_id))
 
+@app.route('/feedback/<app_id>')
+def add_feedback(app_id):
+    return render_template('feedback.html', app_id=app_id)
+
 if __name__ == '__main__':
     app.run(debug=True)

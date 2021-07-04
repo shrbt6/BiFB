@@ -49,7 +49,7 @@
             </div>
             <div class="content">
                 <p>Feedback</p>
-                <input type="button" value="新規Feedback" id="add-feedback">
+                <p><a href="/feedback/{{ app.app_id }}">新規フィードバック</a></p>
                 {% if feedback != None %}
                     {% for i in feedback %}
                     <div class="content-feedback">
