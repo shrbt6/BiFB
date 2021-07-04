@@ -16,7 +16,8 @@ def get_user_name(user_id):
 def sum_user_point(user_id):
     point = select('SELECT point FROM users WHERE user_id=?', user_id)
     if len(point):
-        new_point_val = point[0] + 1
+        print(point)
+        new_point_val = point[0]['point'] + 1
         exec('UPDATE users SET point=? WHERE user_id=?', new_point_val, user_id)
         return new_point_val
     return None
@@ -24,7 +25,7 @@ def sum_user_point(user_id):
 def sub_user_point(user_id):
     point = select('SELECT point FROM users WHERE user_id=?', user_id)
     if len(point):
-        new_point_val = max(point[0]-1, 0)
+        new_point_val = max(point[0]['point']-1, 0)
         exec('UPDATE users SET point=? WHERE user_id=?', new_point_val, user_id)
         return new_point_val
     return None

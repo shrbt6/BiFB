@@ -31,17 +31,17 @@
                 <a class="btn btn-primary" id="header-login-logout" href="/login">ログイン</a>
             </div>
         </header>
-        <input type="hidden" name="app-id" value="{{ app_id }}">
+        <input type="hidden" name="feedback-app-id" id="feedback-app-id" value="{{ app_id }}">
         <p>
             フィードバックタイトル<br>
-            <input type="text" name="apuriname" size="50"/><br>
+            <input type="text" name="apuriname" id="feedback-title" size="50"/><br>
         </p>
         <p>
             本文<br>
-            <textarea name="setsumei" cols="52" rows="6" ></textarea><br>
+            <textarea name="setsumei" id="feedback-description" cols="52" rows="6" ></textarea><br>
         </p>
         <p>
-            <input type="submit" name="send" value="フィードバックを送信"/>
+            <input type="submit" name="send" id="feedback-submit" value="フィードバックを送信"/>
         </p>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
