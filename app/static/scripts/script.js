@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let appDescription = document.getElementById('app-description');
   let appUrl = document.getElementById('app-url');
   let appSubmit = document.getElementById('app-submit');
+  let loginLogout = document.getElementById('header-login-logout')
 
   // Firebase初期化
   // Your web app's Firebase configuration
@@ -45,11 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   // The start method will wait until the DOM is loaded.
   ui.start('#firebaseui-auth-container', uiConfig);
-
+  
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
+      loginLogout.textContent = 'ログアウト';
       const userData = JSON.stringify({'user_id': user.uid, 'user_name': user.displayName, 'email': user.email})
       $.ajax({
         type: 'POST',
@@ -65,17 +67,31 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     } else {
       // User is signed out
-      // ...
+      if (location.pathname !== '/login'){
+        window.location.href = '/login';
+      }
     }
   });
 
-  appSubmit.addEventListener('click', () => {
-    let user = firebase.auth().currentUser;
-    if (user !== null) {
-      let data = {"app_title": appTitle.value, "app_description": appDescription.value, "app_url": appUrl.value, "user_id": user.uid};
-      post('/post/try', data)
+  loginLogout.addEventListener('click', ()=> {
+    if (loginLogout.textContent === 'ログアウト'){
+      firebase.auth().signOut().then(function() {
+        // alert('ログアウト成功')
+      }).catch(function(error) {
+        // alert('ログアウト失敗')
+      })
     }
   }, false);
+
+  if (location.pathname === '/post') {
+    appSubmit.addEventListener('click', () => {
+      let user = firebase.auth().currentUser;
+      if (user !== null) {
+        let data = {"app_title": appTitle.value, "app_description": appDescription.value, "app_url": appUrl.value, "user_id": user.uid};
+        post('/post/try', data)
+      }
+    }, false);
+  }
 
 
   // 無理やりPOSTするための関数
