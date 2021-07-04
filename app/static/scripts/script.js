@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   // Initialize the FirebaseUI Widget using Firebase.
-  const ui = new firebaseui.auth.AuthUI(firebase.auth());
   const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
@@ -45,7 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
   };
   // The start method will wait until the DOM is loaded.
-  ui.start('#firebaseui-auth-container', uiConfig);
+  if (location.pathname === '/login') {
+    const ui = new firebaseui.auth.AuthUI(firebase.auth());
+    ui.start('#firebaseui-auth-container', uiConfig);
+  }
   
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
