@@ -31,6 +31,7 @@
                 <a class="btn btn-primary" id="header-login-logout" href="/login">ログイン</a>
             </div>
         </header>
+        <input type="hidden" name="app-id" value="{{ app_id }}">
         <p>
             フィードバックタイトル<br>
             <input type="text" name="apuriname" size="50"/><br>
@@ -40,7 +41,7 @@
             <textarea name="setsumei" cols="52" rows="6" ></textarea><br>
         </p>
         <p>
-            <input type="submit" name="send" value="フィードバックする"/>
+            <input type="submit" name="send" value="フィードバックを送信"/>
         </p>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
