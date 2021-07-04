@@ -18,6 +18,6 @@ docker-compose restart
 ```
 アプリ停止
 ```
-docker-compose down down --rmi all
+docker-compose down --rmi all
 ```
 起動したアプリを確認するにはブラウザで`http://localhost:4231/`にアクセスします。
