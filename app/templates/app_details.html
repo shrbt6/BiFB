@@ -37,6 +37,35 @@
             </div>
         </header>
 
+        <main>
+            <div class='content'>
+                <h2>{{ app.title }}</h2>
+            </div>
+            <div class='content'>
+                <p>投稿者：{{ app.user_name }}</p>
+            </div>
+            <div class='content'>
+                <p>アプリの説明</p>
+                <p>{{ app.description }}</p>
+            </div>
+            <div class='content'>
+                <p>URL</p>
+                <a href="{{ app.url }}">{{ app.url }}</a>
+            </div>
+            <div class="content">
+                <p>Feedback</p>
+                <p><a href="/feedback/{{ app.app_id }}">新規フィードバック</a></p>
+                {% if feedback != None %}
+                    {% for i in feedback %}
+                    <div class="content-feedback">
+                        <p>{{ i.title }}    {{ i.created_at }}</p>
+                        <p>{{ i.description }}</p>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </main>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="/static/scripts/script.js"></script>
     </body>

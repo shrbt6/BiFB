@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let appDescription = document.getElementById('app-description');
   let appUrl = document.getElementById('app-url');
   let appSubmit = document.getElementById('app-submit');
-  let loginLogout = document.getElementById('header-login-logout')
+  let loginLogout = document.getElementById('header-login-logout');
 
   // Firebase初期化
   // Your web app's Firebase configuration
@@ -90,11 +90,23 @@ document.addEventListener('DOMContentLoaded', () => {
       let user = firebase.auth().currentUser;
       if (user !== null) {
         let data = {"app_title": appTitle.value, "app_description": appDescription.value, "app_url": appUrl.value, "user_id": user.uid};
-        post('/post/try', data)
+        post('/post/try', data);
       }
     }, false);
   }
 
+  if (location.pathname.match('/feedback/')) {
+    document.getElementById('feedback-submit').addEventListener('click', () => {
+      const user = firebase.auth().currentUser;
+      if (user !== null) {
+        const data = {"feedback_user_id": user.uid,
+                      "feedback_app_id": document.getElementById('feedback-app-id').value,
+                      'feedback_title': document.getElementById('feedback-title').value,
+                      'feedback_description': document.getElementById('feedback-description').value};
+        post('/add/feedback', data);
+      }
+    }, false);
+  }
 
   // 無理やりPOSTするための関数
   function post(path, params, method='post') {
