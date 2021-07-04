@@ -54,6 +54,7 @@ def get_app(app_id):
     a = select('SELECT * FROM apps WHERE app_id=?', app_id)
     if len(a) == 0:
         return None
+    a[0]['user_name'] = get_user_name(a[0]['user_id'])
     return a[0]
 
 def add_feedback(user_id, app_id, title, description):

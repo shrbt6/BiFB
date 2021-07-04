@@ -35,7 +35,9 @@ def post_try():
 
 @app.route('/app/<app_id>')
 def app_details(app_id):
-    return render_template('app_details.html', app=app_db.get_app(app_id), )
+    return render_template('app_details.html',
+                        app=app_db.get_app(app_id),
+                        feedback=app_db.get_feedback_of_app(app_id))
 
 if __name__ == '__main__':
     app.run(debug=True)
