@@ -131,7 +131,7 @@
         width: 50%; 
         margin: 0 auto;
         justify-content: space-between;
-        box-shadow: 0 3px 5px rgba(221, 209, 209, 0.22);
+        /* box-shadow: 0 3px 5px rgba(221, 209, 209, 0.22); */
         background-color: rgb(255, 255, 255);
     } 
     main {
@@ -159,4 +159,11 @@
         
 
     }
+    
+}
+.section-tile {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
